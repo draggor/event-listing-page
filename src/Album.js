@@ -67,7 +67,7 @@ export default function Album({cards}) {
               </CardContent>
               <CardActions>
                 <Typography>
-                  Host(s): {card.Speakers}
+                  Host(s): {card.Speakers.join(', ')}
                 </Typography>
               </CardActions>
             </Card>

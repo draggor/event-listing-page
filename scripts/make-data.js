@@ -30,7 +30,7 @@ function formatDate(event) {
   const day = parseInt(event.Day);
 
   if (!event.Start) return new Date(2024, 2, 20 + day);
-  
+
   const [hstr, mstr] = event.Start.split(':');
   const hours = parseInt(hstr);
   const minutes = parseInt(mstr);
