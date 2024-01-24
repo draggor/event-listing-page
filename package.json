@@ -1,0 +1,50 @@
+{
+  "name": "dealer-listing-page",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "packageManager": "npm@10.2.3",
+  "scripts": {
+    "start": "npm run make-data && react-scripts start",
+    "build": "npm run make-data && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "make-data": "node scripts/make-data.js",
+    "make-images-jpg": "magick mogrify -format jpg -crop 2048x1024+0+0 -resize 600x300 -quality 82 -path ./tmp/out/ ./tmp/*.*",
+    "make-images-webp": "magick mogrify -format webp -crop 2048x1024+0+0 -resize 600x300 -quality 50 -define webp:lossless=true -path ./tmp/out/ ./tmp/*.*",
+    "make-images-png": "magick mogrify -format png -crop 2048x1024+0+0 -resize 600x300 -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -path ./tmp/out/ ./tmp/*.*"
+  },
+  "keywords": [],
+  "author": "Draggor",
+  "license": "AGPL3",
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "dotenv-cli": "^7.3.0",
+    "fuse.js": "^6.4.6",
+    "knuth-shuffle-seeded": "^1.0.6",
+    "public-google-sheets-parser": "^1.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-responsive-embed": "^2.1.0",
+    "react-scripts": "latest"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "csv-parse": "^4.16.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+*.swp
+.cache
+.env
+dist
+node_modules
+tmp
