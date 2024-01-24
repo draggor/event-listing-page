@@ -29,7 +29,13 @@ function tagsStrToArray(tagsStr) {
 function formatDate(event) {
   const day = parseInt(event.Day);
 
-  return (new Date(2024, 2, 21 + day)).toLocaleString('en-us', { weekday:"long" });
+  if (!event.Start) return new Date(2024, 2, 20 + day);
+  
+  const [hstr, mstr] = event.Start.split(':');
+  const hours = parseInt(hstr);
+  const minutes = parseInt(mstr);
+
+  return new Date(2024, 2, 20 + day, hours, minutes);
 }
 
 
@@ -55,11 +61,17 @@ function formatTime(event) {
 }
 
 
+function formatDateTime(event) {
+}
+
+
 function handleDealers(dealers) {
+  console.log(dealers[0]);
   dealers.forEach((item, index) => {
     item.tags = tagsStrToArray(item.tags);
     item.Speakers = formatSpeakers(item.Speakers);
-    item.Date = formatDate(item);
+    item.dateObj = formatDate(item);
+    item.Date = item.dateObj.toLocaleString('en-us', { weekday:"long" });
     item.Time = formatTime(item);
     item.key = `_event_${index}_`;
   });

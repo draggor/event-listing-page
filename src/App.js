@@ -25,13 +25,13 @@ import shuffle from 'knuth-shuffle-seeded';
 
 import Album from './Album';
 import TagSelect from './TagSelect';
-import {data, dealersAlpha, dealersAlphaReverse, tags} from './loadData';
+import {data, dealersAlpha, dealersAlphaReverse, timeAsc, timeDesc, tags} from './loadData';
 
 
 const fuseOptions = {
   threshold: 0.3,
   ignoreLocation: true,
-  keys: ['display_name'],
+  keys: ['Title', 'Description', 'Speakers'],
 };
 const fuse = new Fuse(data, fuseOptions);
 
@@ -128,6 +128,16 @@ const App = () => {
     setSearchText('');
     setTag('_');
   };
+  const sortTimeAsc = () => {
+    setDealers(timeAsc);
+    setSearchText('');
+    setTag('_');
+  };
+  const sortTimeDesc = () => {
+    setDealers(timeDesc);
+    setSearchText('');
+    setTag('_');
+  };
   const sortRandom = () => {
     randomDealers = data.slice();
     shuffle(randomDealers);
@@ -167,6 +177,8 @@ const App = () => {
             <Box align="center" p={2}>
               <Button variant="contained" color="primary" onClick={sortAlpha} className={classes.button}>A-Z</Button>
               <Button variant="contained" color="primary" onClick={sortAlphaReverse} className={classes.button}>Z-A</Button>
+              <Button variant="contained" color="primary" onClick={sortTimeAsc} className={classes.button}>Time Asc</Button>
+              <Button variant="contained" color="primary" onClick={sortTimeDesc} className={classes.button}>Time Desc</Button>
               <Button variant="contained" color="primary" onClick={sortRandom}>
                 <Loop />
               </Button>

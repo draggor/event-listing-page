@@ -6,6 +6,11 @@ dealersAlpha.sort((a, b) => a.Title.toLowerCase().localeCompare(b.Title.toLowerC
 const dealersAlphaReverse = dealersAlpha.slice();
 dealersAlphaReverse.reverse();
 
+const timeAsc = data.slice();
+timeAsc.sort((a, b) => a.dateObj > b.dateObj);
+const timeDesc = timeAsc.slice();
+timeDesc.reverse();
+
 const tagsReducer = (accumulator, current) => {
   current.tags.forEach(tag => {
     accumulator[tag] = accumulator[tag] || 0;
@@ -25,5 +30,7 @@ export {
   data,
   dealersAlpha,
   dealersAlphaReverse,
+  timeAsc,
+  timeDesc,
   tags,
 };
