@@ -62,7 +62,7 @@ export default function Album({cards}) {
                     </Typography>
                 </Box>
                 <Typography>
-                  {card.Description}
+                  {card.Abstract}
                 </Typography>
               </CardContent>
               <CardActions>

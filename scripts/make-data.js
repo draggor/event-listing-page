@@ -53,8 +53,8 @@ function formatSpeakers(speakers) {
 function formatTime(event) {
   let duration = '';
 
-  if (event.duration) {
-    duration = `, ${event.duration} minutes`;
+  if (event.Duration) {
+    duration = `, Length ${event.Duration}`;
   }
 
   return `${event.Date} @ ${event.Start}${duration}`;
@@ -68,7 +68,7 @@ function formatDateTime(event) {
 function handleDealers(dealers) {
   console.log(dealers[0]);
   dealers.forEach((item, index) => {
-    item.tags = tagsStrToArray(item.tags);
+    item.tags = tagsStrToArray(item.Track);
     item.Speakers = formatSpeakers(item.Speakers);
     item.dateObj = formatDate(item);
     item.Date = item.dateObj.toLocaleString('en-us', { weekday:"long" });
