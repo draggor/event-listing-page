@@ -164,7 +164,7 @@ const App = () => {
         <Toolbar>
           <CameraIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
-            Fur Squared 2024 Dealers
+            Fur Squared 2024 Programming List
           </Typography>
         </Toolbar>
       </AppBar>
@@ -193,7 +193,7 @@ const App = () => {
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Fur Squared 2024 Dealers
+          Fur Squared 2024 Programming List
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           Created by Draggor
