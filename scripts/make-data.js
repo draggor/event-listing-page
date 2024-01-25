@@ -68,7 +68,7 @@ function formatDateTime(event) {
 function handleDealers(dealers) {
   console.log(dealers[0]);
   dealers.forEach((item, index) => {
-    item.tags = tagsStrToArray(item.Track);
+    item.tags = tagsStrToArray(item.Room);
     item.Speakers = formatSpeakers(item.Speakers);
     item.dateObj = formatDate(item);
     item.Date = item.dateObj.toLocaleString('en-us', { weekday:"long" });
