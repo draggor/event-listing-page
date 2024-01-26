@@ -37,6 +37,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const colors = [
+  "#ff0000",
+  "#ff8000",
+  "#ffff00",
+  "#80ff00",
+  "#00ff00",
+  "#00ff80",
+  "#00ffff",
+  "#0080ff",
+  "#0000ff",
+  "#8000ff",
+  "#ff00ff",
+  "#ff0080",
+];
+
+const colorMap = {};
+
+function getColor(track) {
+  if (!colorMap[track]) {
+    colorMap[track] = colors.pop();
+  }
+
+  return colorMap[track];
+}
+
+
 export default function Album({cards}) {
   const classes = useStyles();
 
@@ -47,6 +73,26 @@ export default function Album({cards}) {
           <Grid item key={card.key} xs={12} sm={6} md={4}>
             <Link href={card.website_link} target="_blank">
             <Card className={classes.card}>
+              <Box
+                alignItems="center"
+                justifyContent="center"
+                textAlign="center"
+                style={{
+                  display: "flex",
+                  backgroundImage: "url('img/blank-border.png')",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'left',
+                  backgroundColor: getColor(card.Track),
+                  aspectRatio: "2/1",
+                  m: 0,
+                  p: 0,
+                }}
+              >
+                <Typography variant="h3">
+                  {card.Track}
+                </Typography>
+              </Box>
               <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant="h4" component="h2">
                   {card.Title}
