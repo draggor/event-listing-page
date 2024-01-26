@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 const colorMap = {
   "Art": "#ff0000",
   "Concert": "#ff8000",
@@ -51,6 +52,27 @@ const colorMap = {
   "Talk": "#ff00ff",
   "Video Gaming": "#ff0080",
 };
+
+const colorMapOverride = [
+  "#fcb826",
+  "#b0b759",
+  "#645542",
+  "#746229",
+  "#8d5229",
+  "#6a230f",
+  "#b08b71",
+  "#d5724a",
+  "#c6965c",
+  "#5e443e",
+  "#66430f",
+  "#a77b03",
+];
+
+function getColor(track) {
+  const i = Object.keys(colorMap).indexOf(track);
+
+  return colorMapOverride[i];
+}
 
 export default function Album({cards}) {
   const classes = useStyles();
@@ -72,7 +94,7 @@ export default function Album({cards}) {
                   backgroundRepeat: "no-repeat",
                   backgroundSize: 'cover',
                   backgroundPosition: 'left',
-                  backgroundColor: colorMap[card.Track],
+                  backgroundColor: getColor(card.Track),
                   aspectRatio: "3/1",
                   m: 0,
                   p: 0,
