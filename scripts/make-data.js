@@ -61,10 +61,6 @@ function formatTime(event) {
 }
 
 
-function formatDateTime(event) {
-}
-
-
 function handleDealers(dealers) {
   console.log(dealers[0]);
   dealers.forEach((item, index) => {

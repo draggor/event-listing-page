@@ -37,31 +37,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const colors = [
-  "#ff0000",
-  "#ff8000",
-  "#ffff00",
-  "#80ff00",
-  "#00ff00",
-  "#00ff80",
-  "#00ffff",
-  "#0080ff",
-  "#0000ff",
-  "#8000ff",
-  "#ff00ff",
-  "#ff0080",
-];
-
-const colorMap = {};
-
-function getColor(track) {
-  if (!colorMap[track]) {
-    colorMap[track] = colors.pop();
-  }
-
-  return colorMap[track];
-}
-
+const colorMap = {
+  "Art": "#ff0000",
+  "Concert": "#ff8000",
+  "Convention Event": "#ffff00",
+  "Dance": "#80ff00",
+  "Interactive": "#00ff00",
+  "Main Event": "#00ff80",
+  "Meetup": "#00ffff",
+  "Performance": "#0080ff",
+  "Rehearsal": "#0000ff",
+  "Tabletop": "#8000ff",
+  "Talk": "#ff00ff",
+  "Video Gaming": "#ff0080",
+};
 
 export default function Album({cards}) {
   const classes = useStyles();
@@ -83,7 +72,7 @@ export default function Album({cards}) {
                   backgroundRepeat: "no-repeat",
                   backgroundSize: 'cover',
                   backgroundPosition: 'left',
-                  backgroundColor: getColor(card.Track),
+                  backgroundColor: colorMap[card.Track],
                   aspectRatio: "2/1",
                   m: 0,
                   p: 0,
