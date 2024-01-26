@@ -171,7 +171,7 @@ const App = () => {
       <main>
         <Grid container justify="center" maxwidth="xl">
           <Grid item>
-            <TextField label="Search Dealers" variant="filled" value={searchText} onChange={handleSearch} className={classes.search} />
+            <TextField label="Search Events" variant="filled" value={searchText} onChange={handleSearch} className={classes.search} />
           </Grid>
           <Grid item>
             <Box align="center" p={2}>

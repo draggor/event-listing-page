@@ -68,12 +68,12 @@ export default function Album({cards}) {
                 textAlign="center"
                 style={{
                   display: "flex",
-                  backgroundImage: "url('img/blank-border.png')",
+                  backgroundImage: "url('img/blank-border-sm.png')",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: 'cover',
                   backgroundPosition: 'left',
                   backgroundColor: colorMap[card.Track],
-                  aspectRatio: "2/1",
+                  aspectRatio: "3/1",
                   m: 0,
                   p: 0,
                 }}
