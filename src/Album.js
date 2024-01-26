@@ -100,7 +100,7 @@ export default function Album({cards}) {
                   aspectRatio: "3/1",
                 }}
               >
-                <Typography variant="h3">
+                <Typography variant="h3" style={{fontWeight: 'bold'}}>
                   {card.Track}
                 </Typography>
               </Box>
