@@ -39,18 +39,18 @@ const useStyles = makeStyles((theme) => ({
 
 
 const colorMap = {
-  "Art": "#ff0000",
-  "Concert": "#ff8000",
-  "Convention Event": "#ffff00",
-  "Dance": "#80ff00",
-  "Interactive": "#00ff00",
-  "Main Event": "#00ff80",
-  "Meetup": "#00ffff",
-  "Performance": "#0080ff",
-  "Rehearsal": "#0000ff",
-  "Tabletop": "#8000ff",
-  "Talk": "#ff00ff",
-  "Video Gaming": "#ff0080",
+  "Art": "#f2c86e",
+  "Concert": "#b0b759",
+  "Convention Event": "#ab9a85",
+  "Dance": "#746229",
+  "Interactive": "#aa744f",
+  "Main Event": "#b05b44",
+  "Meetup": "#b08b71",
+  "Performance": "#d5724a",
+  "Rehearsal": "#c6965c",
+  "Tabletop": "#826760",
+  "Talk": "#957a52",
+  "Video Gaming": "#a77b03",
 };
 
 const colorMapOverride = [
@@ -88,16 +88,16 @@ export default function Album({cards}) {
                 alignItems="center"
                 justifyContent="center"
                 textAlign="center"
+                pl="30px"
+                pr="30px"
                 style={{
                   display: "flex",
                   backgroundImage: "url('img/blank-border-sm.png')",
                   backgroundRepeat: "no-repeat",
-                  backgroundSize: 'cover',
+                  backgroundSize: 'contain',
                   backgroundPosition: 'left',
-                  backgroundColor: getColor(card.Track),
+                  backgroundColor: colorMap[card.Track],
                   aspectRatio: "3/1",
-                  m: 0,
-                  p: 0,
                 }}
               >
                 <Typography variant="h3">
