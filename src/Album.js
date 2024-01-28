@@ -105,9 +105,14 @@ export default function Album({cards}) {
                 </Typography>
               </Box>
               <CardContent className={classes.cardContent}>
-                <Typography gutterBottom variant="h4" component="h2" style={{fontWeight: 'bold'}}>
-                  {card.Title}
-                </Typography>
+                <Box>
+                  <Typography variant="h4" component="h2" style={{float: 'right'}}>
+                    ☆
+                  </Typography>
+                  <Typography gutterBottom variant="h4" component="h2" style={{fontWeight: 'bold'}}>
+                    {card.Title}
+                  </Typography>
+                </Box>
                 <Box mb={'8px'}>
                     <Typography variant="h6">
                       Location: {card.Room}
