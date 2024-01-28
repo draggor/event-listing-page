@@ -16,6 +16,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
 import {StarIconDefaults} from './svg';
+import CardHeader from './CardHeader';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,15 +28,18 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    '&:hover': {
-      backgroundColor: theme.palette.action.hover,
-    },
   },
   cardMedia: {
     paddingTop: '50%',
   },
   cardContent: {
     flexGrow: 1,
+  },
+  star: {
+    float: 'right',
+    '&:hover': {
+      fill: theme.palette.action.hover,
+    },
   },
 }));
 
@@ -69,31 +73,15 @@ export default function Album({cards}) {
       <Grid container spacing={4}>
         {cards.map((card) => (
           <Grid item key={card.key} xs={12} sm={6} md={4}>
-            <Link href={card.website_link} target="_blank">
             <Card className={classes.card}>
-              <Box
-                alignItems="center"
-                justifyContent="center"
-                textAlign="center"
-                pl="30px"
-                pr="30px"
-                style={{
-                  display: "flex",
-                  backgroundImage: "url('img/blank-border-sm.png')",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: 'contain',
-                  backgroundPosition: 'left',
-                  backgroundColor: colorMap[card.Track],
-                  aspectRatio: "3/1",
-                }}
-              >
-                <Typography variant="h3" style={{fontWeight: 'bold'}}>
-                  {card.Track}
-                </Typography>
-              </Box>
+              <CardHeader
+                title={card.Track}
+                backgroundColor={colorMap[card.Track]}
+                backgroundImage="url('img/blank-border-sm.png')"
+              />
               <CardContent className={classes.cardContent}>
                 <Box>
-                  <StarIconDefaults height="50px" width="50px" style={{float: 'right'}} />
+                  <StarIconDefaults height="50px" width="50px" className={classes.star} />
                   <Typography gutterBottom variant="h4" component="h2" style={{fontWeight: 'bold'}}>
                     {card.Title}
                   </Typography>
@@ -118,7 +106,6 @@ export default function Album({cards}) {
                 </Typography>
               </CardActions>
             </Card>
-            </Link>
           </Grid>
         ))}
       </Grid>
