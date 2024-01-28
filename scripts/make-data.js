@@ -26,16 +26,17 @@ function tagsStrToArray(tagsStr) {
 }
 
 
-function formatDate(event) {
+// Reminder: 2nd arg of new Date() is month INDEX
+function getDateArgs(event) {
   const day = parseInt(event.Day);
 
-  if (!event.Start) return new Date(2024, 2, 20 + day);
+  if (!event.Start) return [2024, 1, 20+day];
 
   const [hstr, mstr] = event.Start.split(':');
   const hours = parseInt(hstr);
   const minutes = parseInt(mstr);
 
-  return new Date(2024, 2, 20 + day, hours, minutes);
+  return [2024, 1, 20 + day, hours, minutes];
 }
 
 
@@ -66,8 +67,9 @@ function handleDealers(dealers) {
   dealers.forEach((item, index) => {
     item.tags = tagsStrToArray(item.Track);
     item.Speakers = formatSpeakers(item.Speakers);
-    item.dateObj = formatDate(item);
-    item.Date = item.dateObj.toLocaleString('en-us', { weekday:"long" });
+    item.dateArgs = getDateArgs(item);
+    const dateObj = new Date(...item.dateArgs);
+    item.Date = dateObj.toLocaleString('en-us', { weekday:"long" });
     item.Time = formatTime(item);
     item.key = `_event_${index}_`;
   });
