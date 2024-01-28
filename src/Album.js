@@ -15,6 +15,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
+import {StarIconDefaults} from './svg';
+
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -52,21 +54,6 @@ const colorMap = {
   "Talk": "#957a52",
   "Video Gaming": "#a77b03",
 };
-
-const colorMapOverride = [
-  "#fcb826",
-  "#b0b759",
-  "#645542",
-  "#746229",
-  "#8d5229",
-  "#6a230f",
-  "#b08b71",
-  "#d5724a",
-  "#c6965c",
-  "#5e443e",
-  "#66430f",
-  "#a77b03",
-];
 
 function getColor(track) {
   const i = Object.keys(colorMap).indexOf(track);
@@ -106,9 +93,7 @@ export default function Album({cards}) {
               </Box>
               <CardContent className={classes.cardContent}>
                 <Box>
-                  <Typography variant="h4" component="h2" style={{float: 'right'}}>
-                    ☆
-                  </Typography>
+                  <StarIconDefaults height="50px" width="50px" style={{float: 'right'}} />
                   <Typography gutterBottom variant="h4" component="h2" style={{fontWeight: 'bold'}}>
                     {card.Title}
                   </Typography>

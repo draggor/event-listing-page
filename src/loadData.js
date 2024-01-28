@@ -1,13 +1,19 @@
 import data from './data';
 
 
+// Browsers suck, different date string parson so use ints
+data.forEach(i => {
+  i.dateObj = new Date(...i.dateArgs);
+});
+
+
 const dealersAlpha = data.slice();
 dealersAlpha.sort((a, b) => a.Title.toLowerCase().localeCompare(b.Title.toLowerCase()));
 const dealersAlphaReverse = dealersAlpha.slice();
 dealersAlphaReverse.reverse();
 
 const timeAsc = data.slice();
-timeAsc.sort((a, b) => a.dateObj > b.dateObj);
+timeAsc.sort((a, b) => a.dateObj - b.dateObj);
 const timeDesc = timeAsc.slice();
 timeDesc.reverse();
 
