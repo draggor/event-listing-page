@@ -80,6 +80,7 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     backgroundColor: theme.palette.background.default,
+    color: '#ffffff',
   },
 }));
 

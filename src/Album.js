@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    backgroundColor: theme.palette.background.light,
+    '&:hover': {
+      backgroundColor: theme.palette.action.hover,
+    },
   },
   cardMedia: {
     paddingTop: '50%',

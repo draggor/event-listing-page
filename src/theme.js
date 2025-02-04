@@ -5,7 +5,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#fdb515',
+      main: '#63a6ed',
     },
     secondary: {
       main: '#19857b',
@@ -14,10 +14,11 @@ const theme = createMuiTheme({
       main: red.A400,
     },
     background: {
-      default: '#eee0c3',
+      default: '#1c3a93',
+      light: '#abc2fc',
     },
     action: {
-      hover: '#fdb515',
+      hover: '#dfd1f9',
     },
   },
 });
