@@ -33,7 +33,8 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "csv-parse": "^4.16.0"
+    "csv-parse": "^4.16.0",
+    "luxon": "^3.5.0"
   },
   "browserslist": {
     "production": [

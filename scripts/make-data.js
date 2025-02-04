@@ -6,10 +6,23 @@ const parse = require('csv-parse/lib/sync');
 const PublicGoogleSheetsParser = require('public-google-sheets-parser');
 
 const basePath = path.resolve(__dirname, '..');
-//const csvPath = path.resolve(basePath, 'data', 'dealers.csv');
 const csvPath = path.resolve(basePath, 'data', 'build.tab');
 const dataJsPath = path.resolve(basePath, 'src', 'data.js');
 
+
+const categoryMap = {
+    "Audience Interactive (Game shows, competitions, etc.)": "Audience Interactive",
+    "Convention": "Convention",
+    "Creative Arts (Art / Drawing / Crafts / Writing)": "Creative Arts",
+    "Dance": "Dance",
+    "Educational (Discussion, Presentation)": "Educational",
+    "Entertainment / Non-musical Performance / Comedy": "Entertainment",
+    "Fursuit Related": "Fursuit",
+    "Gaming / Competition": "Games",
+    "Musical Performance": "Music",
+    "Other": "Other",
+    "Social (Meet & Greets)": "Social",
+};
 
 const dayToDateOffset = {
     'wednesday': 0,
@@ -41,7 +54,6 @@ function tagsStrToArray(tagsStr) {
 function getDateArgs(event) {
     const day = dayToDateOffset[event.day];
 
-    //if (!event.Start) return [2025, 1, 20+day];
     if (event.time.length == 0) return [2025, 1, 19];
 
     const [hstr, mstr] = event.time.split(':');
@@ -54,15 +66,6 @@ function getDateArgs(event) {
 
 
 function formatSpeakers(hosts, guests) {
-    /*
-    if (!speakers) return [];
-
-    return speakers.split('|').map(s => {
-        const i = s.indexOf(':');
-
-        return s.substr(i+1);
-    });
-    */
     if (guests) {
         return hosts.split(', ').concat(guests.split(', '));
     } else {
@@ -81,8 +84,8 @@ function handleDealers(dealers) {
     console.log(dealers[4]);
     transposedItems = dealers.map((item, index) => {
         newItem = {};
-        //item.tags = tagsStrToArray(item.Track);
         newItem.tags = [item.category];
+        newItem.Track = categoryMap[item.category];
         newItem.Speakers = formatSpeakers(item.hosts, item.guests);
         newItem.dateArgs = getDateArgs(item);
         const dateObj = new Date(...newItem.dateArgs);

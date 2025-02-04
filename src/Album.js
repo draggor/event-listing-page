@@ -45,18 +45,17 @@ const useStyles = makeStyles((theme) => ({
 
 
 const colorMap = {
-  "Art": "#f2c86e",
-  "Concert": "#b0b759",
-  "Convention Event": "#ab9a85",
-  "Dance": "#746229",
-  "Interactive": "#aa744f",
-  "Main Event": "#b05b44",
-  "Meetup": "#b08b71",
-  "Performance": "#d5724a",
-  "Rehearsal": "#c6965c",
-  "Tabletop": "#826760",
-  "Talk": "#957a52",
-  "Video Gaming": "#a77b03",
+  "Audience Interactive": "#320377",
+  "Convention": "#330987",
+  "Creative Arts": "#600687",
+  "Dance": "#3b048e",
+  "Educational": "#3f027c",
+  "Entertainment": "#5e0a96",
+  "Fursuit": "#430f9e",
+  "Games": "#310470",
+  "Music": "#3c0ea0",
+  "Other": "#650c8c",
+  "Social": "#590591",
 };
 
 function getColor(track) {

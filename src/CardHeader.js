@@ -22,6 +22,7 @@ const CardHeader = (props) => {
         backgroundPosition: 'left',
         backgroundColor,
         aspectRatio: "3/1",
+        color: '#ffffff',
       }}
     >
       <Typography variant="h3" style={{fontWeight: 'bold'}}>
