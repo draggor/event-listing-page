@@ -53,18 +53,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.light,
     padding: theme.spacing(8, 0, 6),
   },
   heroButtons: {
     marginTop: theme.spacing(4),
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.light,
     padding: theme.spacing(6),
   },
   button: {
-    marginRight: theme.spacing(2),
+    margin: theme.spacing(1),
   },
   card: {
     height: '100%',
@@ -79,8 +79,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '720px',
   },
   search: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.primary,
     color: '#ffffff',
+    margin: theme.spacing(1),
   },
 }));
 
@@ -180,13 +181,13 @@ const App = () => {
               <Button variant="contained" color="primary" onClick={sortAlphaReverse} className={classes.button}>Z-A</Button>
               <Button variant="contained" color="primary" onClick={sortTimeAsc} className={classes.button}>Time Asc</Button>
               <Button variant="contained" color="primary" onClick={sortTimeDesc} className={classes.button}>Time Desc</Button>
-              <Button variant="contained" color="primary" onClick={sortRandom}>
+              <Button variant="contained" color="primary" onClick={sortRandom} className={classes.button}>
                 <Loop />
               </Button>
             </Box>
           </Grid>
           <Grid item>
-            <TagSelect tags={tags} onChange={filterTag} value={selectedTag} />
+            <TagSelect tags={tags} onChange={filterTag} value={selectedTag} sx={{ backgroundColor: '#fff' }} />
           </Grid>
         </Grid>
         <Album cards={dealers} />

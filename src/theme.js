@@ -14,11 +14,24 @@ const theme = createMuiTheme({
       main: red.A400,
     },
     background: {
-      default: '#1c3a93',
-      light: '#abc2fc',
+      default: '#49366c',
+        //light: '#71599f',
+      light: '#',
     },
     action: {
-      hover: '#dfd1f9',
+      hover: '#9362e8',
+    },
+  },
+  overrides: {
+    MuiTextField: {
+      root: {
+        backgroundColor: '#abc2fc',
+      },
+    },
+    MuiFormControl: {
+      root: {
+        backgroundColor: '#abc2fc',
+      },
     },
   },
 });

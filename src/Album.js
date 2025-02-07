@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+      //color: '#ffffff',
     backgroundColor: theme.palette.background.light,
     '&:hover': {
       backgroundColor: theme.palette.action.hover,
@@ -49,17 +50,17 @@ const useStyles = makeStyles((theme) => ({
 
 
 const colorMap = {
-  "Audience Interactive": "#320377",
-  "Convention": "#330987",
-  "Creative Arts": "#600687",
-  "Dance": "#3b048e",
-  "Educational": "#3f027c",
-  "Entertainment": "#5e0a96",
-  "Fursuit": "#430f9e",
-  "Games": "#310470",
-  "Music": "#3c0ea0",
-  "Other": "#650c8c",
-  "Social": "#590591",
+  "Audience Interactive": "#1b0c33",
+  "Convention": "#1b182e",
+  "Creative Arts": "#2a2344",
+  "Dance": "#533a88",
+  "Educational": "#54466c",
+  "Entertainment": "#382f5f",
+  "Fursuit": "#4e24aa",
+  "Games": "#2b244b",
+  "Music": "#3c08a2",
+  "Other": "#62429d",
+  "Social": "#3702b3",
 };
 
 function getColor(track) {
