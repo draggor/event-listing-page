@@ -105,6 +105,7 @@ const App = () => {
   const [dealers, setDealers] = useState(initialDealers);
   const [searchText, setSearchText] = useState('');
   const [selectedTag, setTag] = useState(initialTag);
+  const [showSaved, setShowSaved] = useState(false);
 
   const handleSearch = (event) => {
     const str = event.target.value;
@@ -157,6 +158,17 @@ const App = () => {
     setTag(tag);
     setSearchText('');
   };
+  const toggleShowSaved = () => {
+    const saved = JSON.parse(localStorage.getItem('saved'));
+    if (!showSaved && saved) {
+      const filteredDealers = dealersAlpha.slice().filter(dealer => saved[dealer.key]);
+      setDealers(filteredDealers);
+      setShowSaved(true);
+    } else {
+      setDealers(randomDealers);
+      setShowSaved(false);
+    }
+  };
 
 
   return (
@@ -184,6 +196,7 @@ const App = () => {
               <Button variant="contained" color="primary" onClick={sortRandom} className={classes.button}>
                 <Loop />
               </Button>
+              <Button variant="contained" color="primary" onClick={toggleShowSaved} className={classes.button}>Saved</Button>
             </Box>
           </Grid>
           <Grid item>

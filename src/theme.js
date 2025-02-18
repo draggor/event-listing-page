@@ -21,6 +21,9 @@ const theme = createMuiTheme({
     action: {
       hover: '#9362e8',
     },
+    favorite: {
+      hover: '#fdb515',
+    },
   },
   overrides: {
     MuiTextField: {
